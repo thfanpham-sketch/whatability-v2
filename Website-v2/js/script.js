@@ -95,6 +95,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Count-up animation for stat numbers (elements with data-count)
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        io.unobserve(el);
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        if (!target) return;
+        var start = null, dur = 1600;
+        function tick(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased).toLocaleString('en-AU');
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { io.observe(c); });
+  }
+
   // Simple front-end validation feedback for forms (no backend wired up yet)
   document.querySelectorAll('form[data-demo-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {

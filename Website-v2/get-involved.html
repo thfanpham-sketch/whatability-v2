@@ -25,6 +25,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="get-involved.html" aria-current="page">Get Involved</a></li>
         <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <a class="btn btn-primary" href="get-involved.html#donate">Donate Now</a>
@@ -49,34 +50,59 @@
   </section>
 
   <nav class="subnav" aria-label="On this page">
-    <a href="#register">Register Your Interest</a>
+    <a href="#register">Join the Foundation</a>
     <a href="#donate">Donate</a>
-    <a href="#partner">Corporate Partners</a>
+    <a href="#partner">Corporate Opportunities</a>
   </nav>
 
   <!-- REGISTER -->
   <section id="register" class="section">
     <div class="container feature-split">
-      <div class="feature-media">
-        <img src="images/gallery-5.jpg" alt="A What Ability family enjoying a Formula 1 experience together">
+      <div class="feature-media reg-photos">
+        <div class="polaroid"><span class="tape" aria-hidden="true"></span><img src="images/gallery-5.jpg" style="object-position: center 32%;" alt="A What Ability family enjoying a Formula 1 experience together"></div>
+        <div class="polaroid tilt-left"><span class="tape" aria-hidden="true"></span><img src="images/gallery-8.jpg" alt="What Ability participants watching a seal show at an aquarium"></div>
+        <div class="polaroid"><span class="tape" aria-hidden="true"></span><img src="images/gallery-9.jpg" alt="A What Ability participant high-fiving a volunteer at a golf driving range"></div>
+        <div class="polaroid tilt-left"><span class="tape" aria-hidden="true"></span><img src="images/gallery-2.jpg" style="object-position: center 40%;" alt="A What Ability team member with an F1 driver at the Australian Grand Prix"></div>
+        <div class="polaroid"><span class="tape" aria-hidden="true"></span><img src="images/gallery-4.jpg" style="object-position: center 36%;" alt="A What Ability participant holding an F1 steering wheel with an older youth"></div>
+        <div class="polaroid tilt-left"><span class="tape" aria-hidden="true"></span><img src="images/gallery-6.jpg" style="object-position: center 54%;" alt="A What Ability participant with a life-size F1 driver cutout"></div>
       </div>
       <div>
         <span class="eyebrow">For families</span>
-        <h2>Register your interest.</h2>
+        <h2>Join the Foundation.</h2>
         <p>Submit a quick application to join our community. Once approved, you'll receive a monthly email with available experiences in your area. Free to apply, free to attend.</p>
-        <div class="form-card" style="margin-top:24px;">
-          <form data-demo-form>
-            <div class="form-grid">
-              <div><label for="reg-name">Full name</label><input id="reg-name" name="name" type="text" required></div>
-              <div><label for="reg-email">Email</label><input id="reg-email" name="email" type="email" required></div>
-              <div><label for="reg-phone">Phone</label><input id="reg-phone" name="phone" type="tel"></div>
-              <div><label for="reg-location">Suburb / State</label><input id="reg-location" name="location" type="text"></div>
-              <div class="full"><label for="reg-notes">Tell us a little about your family</label><textarea id="reg-notes" name="notes"></textarea></div>
-            </div>
-            <button class="btn btn-primary" style="margin-top:18px;" type="submit">Submit Registration</button>
-            <p class="form-note" role="status" style="display:none; margin-top:14px; color:var(--teal-700); font-weight:600;"></p>
-          </form>
+        <div class="embed-card" style="margin-top:24px;">
+          <iframe id="pages-expression-of-interest-iframe" data-sh-embed-version="2" title="Join the Foundation registration form" style="border: none; width: 100%; min-height: 480px;" allow="payment" loading="lazy"></iframe>
         </div>
+        <script>
+          (function () {
+            var shIframe = document.getElementById('pages-expression-of-interest-iframe');
+            var shParams = new URLSearchParams(window.location.search);
+            var shIframeParams = new URLSearchParams();
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'shcart'].forEach(function (p) {
+              if (shParams.get(p)) shIframeParams.set(p, shParams.get(p));
+            });
+            if (shParams.get('source')) shIframeParams.set('source', shParams.get('source'));
+            else if (shParams.get('utm_source')) shIframeParams.set('source', shParams.get('utm_source'));
+            var shQuery = shIframeParams.toString();
+            shIframe.src = shQuery
+              ? 'https://whatabilityfoundation.supporterhub.net.au/pages/expression-of-interest?' + shQuery
+              : 'https://whatabilityfoundation.supporterhub.net.au/pages/expression-of-interest';
+            window.addEventListener('message', function (event) {
+              if (!event.data || !event.data.url_path || !event.data.url_path.startsWith('/pages/expression-of-interest')) return;
+              shIframe.style.height = event.data.height + 'px';
+            }, false);
+            window.addEventListener('message', function (event) {
+              if (event.data && event.data.action === 'scrollToTop' && event.source === shIframe.contentWindow) {
+                shIframe.scrollIntoView({ block: 'start', behavior: 'smooth' });
+              }
+            }, false);
+            window.addEventListener('message', function (event) {
+              if (event.data && event.data.type === 'ss_request_parent_url') {
+                event.source.postMessage({ type: 'ss_parent_url_response', url: window.location.href }, event.origin);
+              }
+            });
+          })();
+        </script>
       </div>
     </div>
   </section>
@@ -85,29 +111,44 @@
   <section id="donate" class="section section-alt scalloped scalloped-bottom">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Donate</span>
-        <h2>100% of your personal donation funds an experience.</h2>
-        <p>We keep operational costs entirely separate, funded by corporate sponsorships and grants, so every dollar you give goes straight to tickets and outings for families.</p>
+        <span class="eyebrow">Become an Experience Maker</span>
+        <h2>You create moments. We create possibilities.</h2>
+        <p>Many ways to give. One impact. 100% of your personal donation goes directly to experiences: we keep operational costs entirely separate, funded by corporate sponsorships and grants.</p>
       </div>
 
-      <div class="giving-card">
-        <div class="giving-amount">
-          <strong>$14.99</strong>
-          <span>PER MONTH</span>
+      <div class="em-grid">
+        <div class="em-card">
+          <h3>Individual Donations</h3>
+          <p>Give what you can, when you can.</p>
         </div>
-        <div>
-          <h3 style="margin-bottom:6px;">Gift a Smile, monthly giving</h3>
-          <p style="margin:0;">For just $14.99 a month you fund a ticket to joy. 100% of your donation goes directly to experiences, not admin, not overheads. Just smiles. $14.99 funds one smile: imagine what a regular gift can unlock over a year.</p>
+        <div class="em-card">
+          <h3>Containers for Change</h3>
+          <p>Donate via scheme code C10381425.</p>
+        </div>
+        <div class="em-card">
+          <h3>Corporate Giving</h3>
+          <p>Partner with us on shared impact.</p>
+        </div>
+        <div class="em-card">
+          <h3>Fundraising</h3>
+          <p>Host an event, run a campaign.</p>
         </div>
       </div>
+      <div class="em-stats">
+        <div class="em-stat"><strong>$15</strong><span>Unlocks one ticket</span></div>
+        <div class="em-stat"><strong>$50</strong><span>Unlocks a family experience</span></div>
+        <div class="em-stat"><strong>100%</strong><span>Goes directly to experiences</span></div>
+      </div>
+      <p class="em-tagline">Be the reason someone has an unforgettable experience.</p>
 
-      <div class="cta-band" style="margin-top:28px;">
-        <h2>Ready to give?</h2>
-        <p>Set up a monthly gift or a one-off donation. This will connect straight to your Supporter Hub donation page once it's live; for now, reach the team directly.</p>
-        <div class="cta-actions">
-          <a class="btn btn-secondary" href="mailto:hello@whatabilityfoundation.org.au?subject=I'd%20like%20to%20donate">Start a Monthly Gift</a>
-          <a class="btn btn-ghost" href="mailto:hello@whatabilityfoundation.org.au?subject=One-off%20donation">Make a One-off Donation</a>
-        </div>
+      <div class="section-head" style="margin-top:44px; margin-bottom:24px;">
+        <h2 style="margin-bottom:6px;">Ready to give?</h2>
+        <p>Make a one-off donation or start a monthly gift, securely, right here.</p>
+      </div>
+      <div class="embed-card">
+        <script src="https://www.givenow.com.au/js/iframe-resizer/iframeResizer.min.js?version=4.3.2.1"></script>
+        <div style="padding:1px"><iframe id="cause11932" class="gn-iframe" title="Donate to What Ability Foundation" src="https://www.givenow.com.au/embed/Y2F1c2VpZD0xMTkzMiZkb21haW49d3d3LndoYXRhYmlsaXR5dGZvdW5kYXRpb24ub3JnLmF1JnRva2VuPTExOTMyOjcxNzM1NGFmZjFjYWI2NGM%3D" style="width:1px;min-width:100%;border:0;height:882px;" data-offset-bonus="0"></iframe></div>
+        <script>iFrameResize({checkOrigin:false,onScroll:function(){var element = document.getElementById("cause11932");var offsetBonus=element.getAttribute("data-offset-bonus");if(typeof offsetBonus !== typeof undefined){var offset=element.getBoundingClientRect().top-document.body.getBoundingClientRect().top;window.scrollTo({ top: offset-offsetBonus, behavior: 'smooth' });return false;}}},"#cause11932")</script>
       </div>
     </div>
   </section>
@@ -116,7 +157,7 @@
   <section id="partner" class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Corporate Partners</span>
+        <span class="eyebrow">Corporate Opportunities</span>
         <h2>Partner with What Ability Foundation.</h2>
         <p>Join us in unlocking unforgettable experiences. Whether it's through time, donations or team engagement, your company can make a real impact.</p>
       </div>
@@ -127,10 +168,11 @@
             <span class="event-date">12 Aug 2026</span>
             <h3>Corporate Games</h3>
             <p>Your team day funds real impact. A high-energy team experience that gives back. Fully tax deductible.</p>
+            <a class="btn btn-secondary" style="margin-top:12px; align-self:flex-start;" href="corporate-games.html">Explore Corporate Games</a>
           </div>
         </div>
         <div class="event-card">
-          <div class="event-media"><img src="images/sainz-helmet.jpg" alt="What Ability participants meeting a Formula 1 driver and signing a helmet"></div>
+          <div class="event-media"><img src="images/sainz-helmet.jpg" style="object-position: center 42%;" alt="What Ability participants meeting a Formula 1 driver and signing a helmet"></div>
           <div class="event-body">
             <span class="event-date">Groups of 10 to 50</span>
             <h3>Corporate Volunteering</h3>
@@ -140,14 +182,31 @@
         <div class="event-card">
           <div class="event-media"><img class="pos-low" src="images/workplace-giving.jpg" alt="A large group of What Ability participants and volunteers celebrating together at a Formula 1 event"></div>
           <div class="event-body">
-            <span class="event-date">Ongoing</span>
-            <h3>Workplace Giving</h3>
-            <p>Empower your employees to support the Foundation through automated payroll donations. Many companies match employee gifts to double the difference.</p>
+            <a class="event-date" href="#register">Register now</a>
+            <h3>Partnership Opportunities</h3>
+            <p>Sponsor and fund experiences for families, collaborate on inclusive events and activations, or support workplace giving and fundraising initiatives that directly fund experiences.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-media"><img src="images/f1-fan-experience.jpg" alt="Three What Ability team members smiling together at a golf driving range"></div>
+          <div class="event-body">
+            <span class="event-date">1hr Engaging Workshop</span>
+            <h3>Corporate Education</h3>
+            <p>Take it from the fun professionals. When you invest in creating disability confident employees, you'll see a change in attitude. Our tailored approach ensures your team gains practical knowledge to create a workplace that values and supports individuals with diverse abilities.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-media"><img src="images/gallery-3.jpg" alt="A large group of What Ability participants and volunteers at the Australian Grand Prix"></div>
+          <div class="event-body">
+            <span class="event-date">Partner with us</span>
+            <h3>Corporate Partnership</h3>
+            <p>Become a partner and help us towards creating a more inclusive world.</p>
           </div>
         </div>
       </div>
       <div style="text-align:center; margin-top:36px;">
         <a class="btn btn-primary" href="contact.html">Talk to our partnerships team</a>
+        <a class="btn btn-secondary" style="margin-left:10px;" href="corporate.html">Explore Corporate Opportunities</a>
       </div>
     </div>
   </section>
@@ -174,12 +233,13 @@
           <li><a href="about.html">About</a></li>
           <li><a href="experiences.html">Experiences</a></li>
           <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="corporate.html">Corporate</a></li>
         </ul>
       </div>
       <div>
         <h4>Get Involved</h4>
         <ul>
-          <li><a href="get-involved.html#register">Register your interest</a></li>
+          <li><a href="get-involved.html#register">Join the Foundation</a></li>
           <li><a href="get-involved.html#donate">Donate</a></li>
           <li><a href="get-involved.html#partner">Corporate partners</a></li>
         </ul>
@@ -189,6 +249,7 @@
         <ul>
           <li><a href="mailto:hello@whatabilityfoundation.org.au">hello@whatabilityfoundation.org.au</a></li>
           <li><a href="contact.html">Contact form</a></li>
+          <li><a href="https://whatabilityfoundation.supporterhub.net.au/pages/expression-of-interest-copy" target="_blank" rel="noopener">Subscribe to our newsletter</a></li>
         </ul>
       </div>
     </div>
