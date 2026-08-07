@@ -653,6 +653,56 @@ section[id] { scroll-margin-top: 96px; }
   .shape { display: none; }
 }
 
+/* ---------- Team extras: email link + photo placeholder ---------- */
+.people-email {
+  display: inline-block; margin-top: 8px; font-size: .8rem; font-weight: 600;
+  color: var(--chambray); text-decoration: none; word-break: break-word;
+  border-bottom: 2px solid var(--gold-tips); padding-bottom: 1px;
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+.people-email:hover, .people-email:focus-visible {
+  color: var(--rose-madder); border-bottom-color: var(--rose-madder);
+  background: rgba(233,185,32,.18); border-radius: 3px;
+}
+/* In-body text links (e.g. "Check it out") */
+.event-body p a, .feature-split p a, .section-head p a {
+  color: var(--chambray); font-weight: 600; text-decoration: none;
+  border-bottom: 2px solid var(--gold-tips); transition: color .18s ease, border-color .18s ease;
+}
+.event-body p a:hover, .feature-split p a:hover, .section-head p a:hover {
+  color: var(--rose-madder); border-bottom-color: var(--rose-madder);
+}
+.people-placeholder {
+  width: 132px; height: 132px; border-radius: 50%; margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-weight: 700; font-size: 2.1rem; color: #fff;
+  background: var(--chambray); border: var(--line); box-shadow: 5px 5px 0 var(--gold-tips);
+}
+
+/* ---------- Snapshot report download card ---------- */
+.report-card {
+  display: grid; grid-template-columns: 200px 1fr; gap: 34px; align-items: center;
+  background: #fff; border: var(--line); border-radius: var(--radius-md);
+  padding: 32px 34px; margin: 0 auto 56px; max-width: 860px; box-shadow: var(--pop-shadow);
+}
+.report-cover {
+  width: 200px; height: 268px; overflow: hidden; border-radius: 6px;
+  border: var(--line); box-shadow: 5px 5px 0 var(--rose-madder);
+  transform: rotate(-1.6deg); background: var(--navy-900);
+}
+.report-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.report-body h2 { font-size: clamp(1.35rem, 2.2vw, 1.75rem); margin: 6px 0 10px; }
+.report-body p { margin: 0; }
+.report-body .btn { margin-top: 18px; }
+@media (max-width: 720px) {
+  .report-card { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 26px 22px; }
+  .report-cover { margin-bottom: 6px; }
+}
+
+/* Small print / footnote under lists and headings */
+.fineprint { font-size: .82rem; color: var(--ink-soft); margin-top: 10px; font-style: italic; }
+.section-head .fineprint { margin-top: 12px; }
+
 /* ---------- Our story — quote card & stats ---------- */
 .story-quote {
   position: relative; background: #fff; border: var(--line); border-radius: var(--radius-md);
